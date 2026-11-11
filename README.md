@@ -40,6 +40,6 @@ python manage.py createsuperuser
 
 ### 6. Запуск сервера разработки
 ```bash
-python manage.py runserver
+python manage.py runserver 7000
 ```
-Приложение будет доступно по адресу: **http://127.0.0.1:8000/** (или http://localhost:8000/).
+Приложение будет доступно по адресу: **http://127.0.0.1:7000/** (или **http://localhost:7000/**).
