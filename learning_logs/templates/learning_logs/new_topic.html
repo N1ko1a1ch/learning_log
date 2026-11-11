@@ -2,13 +2,20 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
+  <div class="row justify-content-center my-4">
+    <div class="col-md-8 col-lg-6">
+      <div class="card p-4 p-md-5 bg-white rounded-4 border-0">
+        <h2 class="text-center fw-bold mb-4">Новая тема</h2>
 
-  <h1>Добавить новую тему</h1>
-
-  <form action="{% url 'learning_logs:new_topic' %}" method="post">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    {% bootstrap_button button_type="submit" content="Добавить тему" %}
-  </form>
-
+        <form action="{% url 'learning_logs:new_topic' %}" method="post">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <a class="btn btn-outline-secondary" href="{% url 'learning_logs:topics' %}">Отмена</a>
+            {% bootstrap_button button_type="submit" content="Добавить тему" button_class="btn-primary" %}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 {% endblock content %}

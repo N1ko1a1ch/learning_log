@@ -1,9 +1,17 @@
 {% extends "learning_logs/base.html" %}
 
 {% block content %}
-
-  <div class="alert alert-success">
-    Вы вышли из системы. Спасибо, что зашли!
+  <div class="row justify-content-center my-5">
+    <div class="col-md-6 col-lg-5">
+      <div class="card p-4 p-md-5 text-center bg-white rounded-4 border-0">
+        <div class="display-4 text-success mb-3">✓</div>
+        <h3 class="fw-bold mb-2">Вы вышли из системы</h3>
+        <p class="text-muted mb-4">Спасибо, что заглянули! Ждём вас снова.</p>
+        <div>
+          <a class="btn btn-primary px-4" href="{% url 'users:login' %}">Войти снова</a>
+          <a class="btn btn-outline-secondary px-4 ms-2" href="{% url 'learning_logs:index' %}">На главную</a>
+        </div>
+      </div>
+    </div>
   </div>
-
 {% endblock content %}

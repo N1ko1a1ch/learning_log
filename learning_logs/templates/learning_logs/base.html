@@ -7,12 +7,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Learning Log</title>
   {% bootstrap_css %}
+  <style>
+    body {
+      background-color: #f4f6f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+    }
+    .navbar {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .card {
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+  </style>
 </head>
 <body>
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'learning_logs:index' %}">Learning Log</a>
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="{% url 'learning_logs:index' %}">
+        📘 Learning Log
+      </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarNav">
@@ -29,17 +49,17 @@
         <ul class="navbar-nav">
           {% if user.is_authenticated %}
             <li class="nav-item">
-              <span class="nav-link">Привет, {{ user.username }}.</span>
+              <span class="nav-link text-light">Привет, <strong>{{ user.username }}</strong></span>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'users:logout' %}">Выйти</a>
+              <a class="nav-link text-warning" href="{% url 'users:logout' %}">Выйти</a>
             </li>
           {% else %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'users:register' %}">Зарегистрироваться</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'users:login' %}">Войти</a>
+              <a class="btn btn-outline-light btn-sm ms-md-2 mt-1 mt-md-0" href="{% url 'users:login' %}">Войти</a>
             </li>
           {% endif %}
         </ul>
@@ -47,7 +67,7 @@
     </div>
   </nav>
 
-  <main class="container">
+  <main class="container py-3">
     {% block content %}{% endblock content %}
   </main>
 
