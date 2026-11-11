@@ -1,0 +1,14 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+  <div class="p-3 mb-4 bg-light border rounded-3">
+    <div class="container-fluid py-4">
+      <h1 class="display-3">Отслеживайте своё обучение.</h1>
+      <p class="lead">Создайте свой аккаунт, чтобы составить список тем,
+        которые вы изучаете, и заведите журнал для записей по каждой теме.
+        Каждый раз, изучая что-то новое, записывайте то, что вы узнали.</p>
+      <a class="btn btn-primary btn-lg mt-1"
+         href="{% url 'users:register' %}">Зарегистрироваться &raquo;</a>
+    </div>
+  </div>
+{% endblock content %}
